@@ -9,10 +9,17 @@ const options = {
 var websiteUrl = "https://musicbrainz.org/ws/2/";
 var requestUrl = "https://lyrics-plus.p.rapidapi.com/lyrics/";
 
+var submitButton = document.querySelector("#submit");
+
 var recommendationTable = document.getElementById("search-results-table");
 
 function getLyrics() {
   event.preventDefault;
+
+  var lyricSection = document.querySelector("#lyric-display");
+  if (lyricSection) {
+    lyricSection.innerHTML = " ";
+  }
   let title = document.getElementById("inputTitle5").value;
   let artist = document.getElementById("inputArtist5").value;
   if (artist === "" || title === "") {
@@ -33,6 +40,7 @@ function getLyrics() {
       var parentDiv = recommendationTable.parentNode;
 
       var LyricDisplay = document.createElement("div");
+      LyricDisplay.setAttribute("id", "lyric-display");
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
 
@@ -41,6 +49,8 @@ function getLyrics() {
 
     .catch((err) => console.error(err));
 }
+
+submitButton.addEventListbener("click", getLyrics);
 
 const option = {
   method: "GET",
