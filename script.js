@@ -1,19 +1,45 @@
-var requestUrl = 'https://musicbrainz.org/ws/2/'
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "16e36212f8msh7435d930e8ebfa3p10cd71jsn108eca6b3b92",
+    "X-RapidAPI-Host": "lyrics-plus.p.rapidapi.com",
+  },
+};
 
-$.ajax({
-    url: requestUrl,
-    method: 'PUSH',
-  }).then(function (response) {
-    console.log('AJAX Response \n-------------');
-    console.log(response);
-  });
+var websiteUrl = "https://api.musixmatch.com/ws/1.1/";
+var requestUrl = "https://lyrics-plus.p.rapidapi.com/lyrics/";
 
+var recommendationTable = document.getElementById("search-results-table");
 
-function getApi() {
-    var requestUrl = ''
+function getLyrics() {
+  event.preventDefault;
+  let title = document.getElementById("inputTitle5").value;
+  let artist = document.getElementById("inputArtist5").value;
+  if (artist === "" || title === "") {
+    alert("Both fields must be filled out");
+  }
+  console.log(title);
+  console.log(artist);
 
-    fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
+  fetch(requestUrl + title + "/" + artist, options)
+    .then((response) => response.json())
+
+    .then((response) => {
+      console.log(response.name, response.lyrics);
+      var lyricResult = response.lyrics;
+      var songName = response.name;
+
+      var recommendationTable = document.getElementById("search-results-table");
+      var parentDiv = recommendationTable.parentNode;
+
+      var LyricDisplay = document.createElement("div");
+      var textContent = document.createTextNode(lyricResult);
+      LyricDisplay.appendChild(textContent);
+
+      parentDiv.insertBefore(LyricDisplay, recommendationTable);
     })
+
+    .catch((err) => console.error(err));
+
+  //   });
 }
