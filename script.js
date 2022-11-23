@@ -40,6 +40,4 @@ function getLyrics() {
     })
 
     .catch((err) => console.error(err));
-
-  //   });
 }
