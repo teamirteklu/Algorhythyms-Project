@@ -6,7 +6,7 @@ const options = {
   },
 };
 
-var websiteUrl = "https://api.musixmatch.com/ws/1.1/";
+var websiteUrl = "https://musicbrainz.org/ws/2/";
 var requestUrl = "https://lyrics-plus.p.rapidapi.com/lyrics/";
 
 var recommendationTable = document.getElementById("search-results-table");
@@ -40,4 +40,16 @@ function getLyrics() {
     })
 
     .catch((err) => console.error(err));
+}
+
+const option = {
+  method: "GET",
+  headers: {
+    "X-MusicBrainzAPI-Key": "xSnQ2rQ1yUozeTQdGNfy9rLexMAoEIIIzDeAaxsC",
+    "X-MusicBrainzAPI-Host": "https://musicbrainz.org/ws/2/",
+  },
+};
+
+function getArtits() {
+
 }
