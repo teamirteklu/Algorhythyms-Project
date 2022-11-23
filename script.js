@@ -42,10 +42,7 @@ function getLyrics() {
 
       var LyricDisplay = document.createElement("div");
       LyricDisplay.setAttribute("id", "lyric-display");
-      document
-        .getElementById("search-results")
-        .setAttribute("style", "white-space: pre-wrap;");
-
+      LyricDisplay.setAttribute("style", "white-space: pre-wrap;");
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
 
@@ -55,7 +52,9 @@ function getLyrics() {
     .catch((err) => console.error(err));
 }
 
-submitButton.addEventListbener("click", getLyrics);
+submitButton.addEventListener("click", getLyrics);
+
+/*
 
 const option = {
   method: "GET",
@@ -65,6 +64,6 @@ const option = {
   },
 };
 
-function getArtits() {
+function getArtits() {}
 
-}
+*/
