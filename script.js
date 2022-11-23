@@ -33,6 +33,7 @@ function getLyrics() {
 
     .then((response) => {
       console.log(response.name, response.lyrics);
+
       var lyricResult = response.lyrics;
       var songName = response.name;
 
@@ -41,6 +42,10 @@ function getLyrics() {
 
       var LyricDisplay = document.createElement("div");
       LyricDisplay.setAttribute("id", "lyric-display");
+      document
+        .getElementById("search-results")
+        .setAttribute("style", "white-space: pre-wrap;");
+
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
 
