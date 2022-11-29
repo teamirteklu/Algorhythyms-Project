@@ -86,10 +86,7 @@ function getArtists() {
       let parentElement = document.getElementsByClassName("artistId");
       console.log(parentElement);
 
-      for (let i = 0; i < 2; i++) {
-        parentElement[0].innerHTML = `${artists.items[0].name}`;
-        console.log(parentElement);
-      }
+    
 
       for (let i = 0; i < artists.items[0].genres.length; i++) {
         genresElement[i].innerHTML = `${artists.items[0].genres[i]}`;
