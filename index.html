@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,65 +10,114 @@
 </head>
 
 <body>
-    <header class="container-fluid bg-dark text-light mb-5 p-3">
-        <h1>Algorhythyms</h1>
-    </header>
-    <section class="search-description">
-        <div class="col-12 col-md-8 col-lg-9">
-            <h3>Lyric Finder</h3>
+    <div class="container">
+        <div class="row-2 p-4">
+            <nav class="navbar navbar-dark navbar-expand-md fw-bold shadow bg-danger">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Home</a>
+                    <button 
+                    class="navbar-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="navbar-collapse collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-grow-1 mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Search</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Lyrics">Lyrics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Recommendations">Recommendations</a>
+                            </li>
+                        </ul>
+                        <section class="search-description">
+                            <form class="d-flex align-items-end" role="search">
+                                <input class="form-control me-2" type="Lyrics" id="inputArtist5"
+                                    placeholder="Type artist here" aria-label="Search">
+                            </form>
+
+                            <form class="d-flex align-items-end" role="search">
+                                <input class="form-control me-2" type="Lyrics" id="inputTitle5"
+                                    placeholder="Type song here" aria-label="Search">
+                            </form>
+                            <button class="btn btn-outline-success" id = "submit" type="submit">Search</button>
+                        </section>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+
+    <header class="p-1">
+        <div class="container mb-5">
+            <h1 class="fw-bold" id="title">Algorhythym</h1>
+            <h5>Ever need the lyrics to a song, but can't find Genius for some reason? Don't worry we're here to help!
+            </h5>
+            <h5>Type in the name and artist of a song and watch as the lyrics and album appear right before your eyes!
+            </h5>
+            <h6>Seriously, just go to Genius already...</h6>
         </div>
 
-        <label for="inputLyrics5" class="form-label">Search for song lyrics with a song title and artist!</label>
-        <input type="Lyrics" id="inputTitle5" class="form-control" placeholder="Song Title">
-
-        <label for="inputLyrics5" class="form-label"></label>
-        <input type="Lyrics" id="inputArtist5" class="form-control" placeholder="Artist">
-        
-        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-        
-    </section>
+    </header>
 
     <br>
+    <section class="container-fluid">
+        <section class="bg-danger row p-5" id="sidebar-results">
+            <div class="col-12 col-md-6" id="hero">
+                <img class="img-fluid" src="./images/image1.png">
+            </div>
 
-    <section id= search-results class="search-results">
-       
-      <table id="search-results-table" class="table table-borderless table-primary caption-top">
-            <caption>Song Recommendations Based on Search</caption>
-            <thead>
-              <tr>
-                <th scope="col">Cover</th>
-                <th scope="col">Song</th>
-                <th scope="col">Album</th>
-                <th scope="col">Artist</th>
-                <th scope="col">Genre</th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider">
-              <tr>
-                <th scope="row" class="albumCover"></th>
-                <td class="trackOne">*insert song here*</td>
-                <td class="albumOne">*insert album here*</td>
-                <td class="artistId">*insert artist here*</td>
-                <td class="genreOne">*insert genre here*</td>
-              </tr>
-              <tr>
-                <th scope="row" class="albumCover"></th>
-                <td class="trackOne">*insert song here*</td>
-                <td class="albumOne">*insert album here*</td>
-                <td class="artistId">*insert artist here*</td>
-                <td class="genreOne">*insert genre here*</td>
-              </tr>
-              <tr>
-                <th scope="row" class="albumCover"></th>
-                <td class="trackOne">*insert song here*</td>
-                <td class="albumOne">*insert album here*</td>
-                <td class="artistId">*insert artist here*</td>
-                <td class="genreOne">*insert genre here*</td>
-              </tr>
-            </tbody>
-          </table>
+            <div> 
+                <h3 class="text-light Lyrics">Lyrics</h3>
+            </div>
+            
+            
+
+            <table id="search-results-table" class="table table-light table-sm caption-top">
+                <caption class = "text-light"><h3>Other Songs by this Artist</h3></caption>
+                <thead>
+                  <tr>
+                    <th scope="col-12 col-md-6">Cover</th>
+                    <th scope="col-12 col-md-6">Song</th>
+                    <th scope="col-12 col-md-6">Album</th>
+                    <th scope="col-12 col-md-6">Genre</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    <th scope="row" class="albumCover"></th>
+                    <td class="trackOne"></td>
+                    <td class="albumOne"></td>
+                    <td class="genreOne"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="albumCover"></th>
+                    <td class="trackOne"></td>
+                    <td class="albumOne"></td>
+                    <td class="genreOne"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="albumCover"></th>
+                    <td class="trackOne"></td>
+                    <td class="albumOne"></td>
+                    <td class="genreOne"></td>
+                  </tr>
+                </tbody>
+              </table>
+            
+        </section>
     </section>
-    <script src =script.js></script>
+    <script src=script.js></script>
 </body>
 
 </html>
