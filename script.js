@@ -33,6 +33,7 @@ function getLyrics() {
 
     .then((response) => {
       console.log(response.name, response.lyrics);
+
       var lyricResult = response.lyrics;
       var songName = response.name;
 
@@ -41,6 +42,7 @@ function getLyrics() {
 
       var LyricDisplay = document.createElement("div");
       LyricDisplay.setAttribute("id", "lyric-display");
+      LyricDisplay.setAttribute("style", "white-space: pre-wrap;");
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
 
@@ -50,7 +52,9 @@ function getLyrics() {
     .catch((err) => console.error(err));
 }
 
-submitButton.addEventListbener("click", getLyrics);
+submitButton.addEventListener("click", getLyrics);
+
+/*
 
 const option = {
   method: "GET",
@@ -60,6 +64,6 @@ const option = {
   },
 };
 
-function getArtits() {
+function getArtits() {}
 
-}
+*/
