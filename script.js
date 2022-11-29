@@ -15,8 +15,10 @@ var submitButton = document.querySelector("#submit");
 var recommendationTable = document.getElementById("search-results-table");
 
 
+
+
 function getLyrics() {
-  event.preventDefault;
+  event.preventDefault  ;
 
   var lyricSection = document.querySelector("#lyric-display");
   if (lyricSection) {
@@ -45,40 +47,31 @@ function getLyrics() {
       LyricDisplay.setAttribute("id", "lyric-display");
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
-
       parentDiv.insertBefore(LyricDisplay, recommendationTable);
+    })
+
+    .then((response) => {
+      let arrayOne = [];
+      // let artist = document.getElementById("inputArtist5").value;
+      arrayOne.push(response.artists.items[0].name);
+      console.log(response.artists.items[0].name);
+        
+
+      for (let i = 0; i < arrayOne.length; i++) {
+        let parentElement = document.getElementById("artistId");
+        parentElement.innerHTML = `<td id="artistId">${artist.items[i].name}</td>`;
+        console.log(parentElement);
+      }
+      // let makeElement = (url) => {
+      //   // make new table row and
+      //   let thisElement = document.getElementById 
+      //   thisElement.textContent(url)
+      // }
     })
 
     .catch((err) => console.error(err));
 }
 submitButton.addEventListener("click", getLyrics);
-
-// const option = {
-//   method: "GET",
-//   headers: {
-//     "X-MusicBrainzAPI-Key": "xSnQ2rQ1yUozeTQdGNfy9rLexMAoEIIIzDeAaxsC",
-//     "X-MusicBrainzAPI-Host": "https://musicbrainz.org/ws/2/",
-//   },
-// };
-
-// function getArtits(artistName) {
-  // let artistUrl = `https://musicbrainz.org/ws/2/release/?query=artist=${artistName}&fmt=json`
-  // let artistName = document.getElementById("inputArtist5").value;
- 
-//   fetch(artistUrl)
-//   .then(response => response.json())
-
-  // .then(apiResults => {
-    // console.log(apiResults);
-  // })
-
-// }
-// let artistName = document.getElementById("inputArtist5").value;
-// submitButton.addEventListener('click', getArtits(artistName));
-// console.log(artistName);
-
-// https://musicbrainz.org/ws/2/release-group/xSnQ2rQ1yUozeTQdGNfy9rLexMAoEIIIzDeAaxsC?inc=genres+user-genres&fmt=json
-// https://musicbrainz.org/ws/2/release-group/xSnQ2rQ1yUozeTQdGNfy9rLexMAoEIIIzDeAaxsC?inc=artits+artist-rels/query=artits=katyperry&fmt=json
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -92,6 +85,17 @@ var requestOptions = {
 
 function getArtits() {
   let artist = document.getElementById("inputArtist5").value;
+  // if (artist === artist) {
+  //   Element.innerHTML=
+  //   ` <tr>
+  //   <th scope="row" id="albumCover">${albums.items[0, 1, 2].images[1]}</th>
+  //   <td>${tracks.items[0, 1, 2].name}</td>
+  //   <td>${albums.items[0, 1, 2].name}</td>
+  //   <td>${artists.items[0].name}</td>
+  //   <td>${artists.items[0, 1, 2].genres}</td>
+  //   </tr>
+  //   `
+  // }
   var artistSection = document.querySelector("#artist-display");
   if (artistSection) {
     artistSection.innerHTML = " ";
@@ -108,9 +112,20 @@ function getArtits() {
 };
 
 submitButton.addEventListener('click', getArtits);
-
+// /*
 function getAlbums() {
   let artist = document.getElementById("inputArtist5").value;
+  // if (artist === artist) {
+    // Element.innerHTML=
+    // ` <tr>
+    // <th scope="row" id="albumCover">${albums.items[0, 1, 2].images[1]}</th>
+    // <td>${tracks.items[0, 1, 2].name}</td>
+    // <td>${albums.items[0, 1, 2].name}</td>
+    // <td>${artists.items[0].name}</td>
+    // <td>${artists.items[0, 1, 2].genres}</td>
+    // </tr>
+    // `
+  // }
   var artistSection = document.querySelector("#artist-display");
   if (artistSection) {
     artistSection.innerHTML = " ";
@@ -127,9 +142,23 @@ function getAlbums() {
 };
 
 submitButton.addEventListener('click', getAlbums);
-
+// */
 function getTracks() {
   let artist = document.getElementById("inputArtist5").value;
+  console.log(artist)
+  // let albums = document.getElementById("albumCover");
+  // if (artist === artist) {
+    // Element.innerHTML=
+    // ` <tr>
+    // <th scope="row" id="albumCover">${albums.items[0].images[1]}</th>
+    // <td>${tracks.items[0, 1, 2].name}</td>
+    // <td>${albums.items[0, 1, 2].name}</td>
+    // <td>${artists.items[0].name}</td>
+    // <td>${artists.items[0, 1, 2].genres}</td>
+    // </tr>
+    // `
+     
+  // }
   var artistSection = document.querySelector("#artist-display");
   if (artistSection) {
     artistSection.innerHTML = " ";
@@ -146,3 +175,27 @@ function getTracks() {
 };
 
 submitButton.addEventListener('click', getTracks);
+
+/*
+let htmlString = "";
+for (let i = 0; i < 3; i++) {
+htmlString += ` <tr>
+//  <th scope="row">${albums.items[i].images[i]}</th>
+//  <td>${tracks.items[i].name}</td>
+//  <td>${albums.items[i].name}</td>
+//  <td>${artists.items[i].name}</td>
+//  <td>${artists.items[i].genres}</td>
+//  </tr>
+//  `;
+}*/
+
+// tbody.innerHTML = htmlString;
+//   Element.innerHTML=
+//  ` <tr>
+//  <th scope="row">${albums.items[0, 1, 2].images[1]}</th>
+//  <td>${tracks.items[0, 1, 2].name}</td>
+//  <td>${albums.items[0, 1, 2].name}</td>
+//  <td>${artists.items[0].name}</td>
+//  <td>${artists.items[0, 1, 2].genres}</td>
+//  </tr>
+//  `
