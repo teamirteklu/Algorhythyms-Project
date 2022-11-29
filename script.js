@@ -116,15 +116,23 @@ function getAlbums() {
 
     .then(response => response.json())
     .then(result => {
-      console.log(result)
       var albums = result.albums;
+      console.log(albums);
+      let albumCoverElement = document.getElementsByClassName("albumCover");
       let parentElement = document.getElementsByClassName("albumOne");
-      console.log(parentElement);
+       console.log(parentElement);
 
-      for (let i = 0; i < parentElement.length; i++) {
+       for (let i =0; i < parentElement.length; i++) {
         parentElement[i].innerHTML = `${albums.items[i].name}`;
-        console.log(parentElement);
+       }
+
+      for (let i = 0; i < 3; i++) {
+        let albumImage = document.createElement("img");
+        albumImage.setAttribute("src", albums.items[i].images[1].url)
+        albumCoverElement[i].appendChild(albumImage);
+        console.log(albums.items[1]);
       }
+
 
     })
     .catch(error => console.log('error', error))
