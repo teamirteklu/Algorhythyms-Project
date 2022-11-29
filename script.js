@@ -175,27 +175,3 @@ function getTracks() {
 };
 
 submitButton.addEventListener('click', getTracks);
-
-/*
-let htmlString = "";
-for (let i = 0; i < 3; i++) {
-htmlString += ` <tr>
-//  <th scope="row">${albums.items[i].images[i]}</th>
-//  <td>${tracks.items[i].name}</td>
-//  <td>${albums.items[i].name}</td>
-//  <td>${artists.items[i].name}</td>
-//  <td>${artists.items[i].genres}</td>
-//  </tr>
-//  `;
-}*/
-
-// tbody.innerHTML = htmlString;
-//   Element.innerHTML=
-//  ` <tr>
-//  <th scope="row">${albums.items[0, 1, 2].images[1]}</th>
-//  <td>${tracks.items[0, 1, 2].name}</td>
-//  <td>${albums.items[0, 1, 2].name}</td>
-//  <td>${artists.items[0].name}</td>
-//  <td>${artists.items[0, 1, 2].genres}</td>
-//  </tr>
-//  `
