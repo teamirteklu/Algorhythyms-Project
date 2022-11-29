@@ -5,8 +5,7 @@ const options = {
     "X-RapidAPI-Host": "lyrics-plus.p.rapidapi.com",
   },
 };
-// var tempUrl = "https://musicbrainz.org/ws/2/artits/?query=davidbowie"
-// https://musicbrainz.org/ws/2/release/?query=release=iceonfire&fmt=json
+
 var websiteUrl = "https://musicbrainz.org/ws/2/artist/?";
 var requestUrl = "https://lyrics-plus.p.rapidapi.com/lyrics/";
 
@@ -39,7 +38,6 @@ function getLyrics() {
 
       var recommendationTable = document.getElementById("search-results-table");
       var parentDiv = recommendationTable.parentNode;
-      // LyricDisplay.setAttribute("style", "white-space: pre-wrap;");
       var LyricDisplay = document.createElement("div");
       LyricDisplay.setAttribute("id", "lyric-display");
       LyricDisplay.setAttribute("style", "white-space: pre-wrap;");
@@ -73,24 +71,10 @@ function getArtists() {
     artistSection.innerHTML = " ";
   }
   let artist = document.getElementById("inputArtist5").value;
-  // if (artist === artist) {
-  //   Element.innerHTML=
-  //   ` <tr>
-  //   <th scope="row" id="albumCover">${albums.items[0, 1, 2].images[1]}</th>
-  //   <td>${tracks.items[0, 1, 2].name}</td>
-  //   <td>${albums.items[0, 1, 2].name}</td>
-  //   <td>${artists.items[0].name}</td>
-  //   <td>${artists.items[0, 1, 2].genres}</td>
-  //   </tr>
-  //   `
-  // }
   
-  let artistUrl = `https://v1.nocodeapi.com/emilyyy231/spotify/xjlyNJQPtDsCRmnx/search?q=${artist}&type=artist`
+  let artistUrl = `https://v1.nocodeapi.com/emilyyyy231/spotify/HGxHjgnrJuGpsnoc/search?q=${artist}&type=artist`
 
   fetch(artistUrl, requestOptions)
-    // .then((response) => response.json())
-    // .then((result) => console.log(result))
-    // .catch((error) => console.log("error", error));
 
 
     .then((response) => response.json())
@@ -98,20 +82,16 @@ function getArtists() {
     .then(result => {
       console.log(result)
       var artists = result.artists;
-      // var artists = result.genres;
       let genresElement = document.getElementsByClassName("genreOne");
       let parentElement = document.getElementsByClassName("artistId");
       console.log(parentElement);
 
       for (let i = 0; i < 2; i++) {
-        // let parentElement = document.getElementById("artistId");
         parentElement[0].innerHTML = `${artists.items[0].name}`;
         console.log(parentElement);
       }
 
       for (let i = 0; i < artists.items[0].genres.length; i++) {
-        // var artists = result.genres;
-        // let parentElement = document.getElementById("artistId");
         genresElement[i].innerHTML = `${artists.items[0].genres[i]}`;
         console.log(genresElement);
       }
@@ -121,7 +101,7 @@ function getArtists() {
   
   };
 submitButton.addEventListener('click', getArtists);
-// /*
+
 function getAlbums() {
   let artist = document.getElementById("inputArtist5").value;
 
@@ -129,12 +109,9 @@ function getAlbums() {
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
-  let artistUrl = `https://v1.nocodeapi.com/emilyyy231/spotify/xjlyNJQPtDsCRmnx/search?q=${artist}&type=album`
+  let artistUrl = `https://v1.nocodeapi.com/emilyyyy231/spotify/HGxHjgnrJuGpsnoc/search?q=${artist}&type=album`
 
   fetch(artistUrl, requestOptions)
-    // .then((response) => response.json())
-    // .then((result) => console.log(result))
-    // .catch((error) => console.log("error", error));
 
 
     .then(response => response.json())
@@ -145,16 +122,10 @@ function getAlbums() {
       console.log(parentElement);
 
       for (let i = 0; i < parentElement.length; i++) {
-        // let parentElement = document.getElementById("artistId");
         parentElement[i].innerHTML = `${albums.items[i].name}`;
         console.log(parentElement);
       }
 
-      // for (let i = 0; i < genresElement.length; i++) {
-      //   // let parentElement = document.getElementById("artistId");
-      //   genresElement[i].innerHTML = `${artist.items[i].genres}`;
-      //   console.log(genresElement);
-      // }
     })
     .catch(error => console.log('error', error))
     
@@ -162,7 +133,7 @@ function getAlbums() {
 };
 
 submitButton.addEventListener('click', getAlbums);
-// */
+
 function getTracks() {
   let artist = document.getElementById("inputArtist5").value;
   console.log(artist)
@@ -171,14 +142,9 @@ function getTracks() {
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
-  let artistUrl = `https://v1.nocodeapi.com/emilyyy231/spotify/xjlyNJQPtDsCRmnx/search?q=${artist}&type=track`
+  let artistUrl = `https://v1.nocodeapi.com/emilyyyy231/spotify/HGxHjgnrJuGpsnoc/search?q=${artist}&type=track`
 
   fetch(artistUrl, requestOptions)
-    // .then((response) => response.json())
-    // .then((result) => console.log(result))
-    // .catch((error) => console.log("error", error));
-
-
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -188,7 +154,6 @@ function getTracks() {
       console.log(parentElement);
 
       for (let i = 0; i < parentElement.length; i++) {
-        // let parentElement = document.getElementById("artistId");
         parentElement[i].innerHTML = `${tracks.items[i].name}`;
         console.log(parentElement);
       }
