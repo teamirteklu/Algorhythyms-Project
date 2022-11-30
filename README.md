@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-# project1
-Project 1 description
-=======
 # Algorhythyms
 
 ![image](https://user-images.githubusercontent.com/115049982/204694267-976cdc29-4a72-43dd-bbb1-fb5eff133548.png)
@@ -17,11 +13,11 @@ API for the lyric search:
 API for the table display: 
 
 # Links and Contacts
-Git Hub Repo:
-Deployed Site:
+Git Hub Repo: https://github.com/teamirteklu/Algorhythyms-Project
+Deployed Site: https://teamirteklu.github.io/Algorhythyms-Project/
 
 Emily Yates: https://github.com/emilyy231
 Jacob Pickron: https://github.com/jpick77
 Teamir Teklu: https://github.com/teamirteklu
 Sarah DeSantis: https://github.com/sndesantis
->>>>>>> Stashed changes
+
