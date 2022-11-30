@@ -72,7 +72,7 @@ function getArtists() {
   }
   let artist = document.getElementById("inputArtist5").value;
   
-  let artistUrl = `https://v1.nocodeapi.com/emilyyyy231/spotify/HGxHjgnrJuGpsnoc/search?q=${artist}&type=artist`
+  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=artist`
 
   fetch(artistUrl, requestOptions)
 
@@ -106,7 +106,7 @@ function getAlbums() {
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
-  let artistUrl = `https://v1.nocodeapi.com/emilyyyy231/spotify/HGxHjgnrJuGpsnoc/search?q=${artist}&type=album`
+  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=album`
 
   fetch(artistUrl, requestOptions)
 
@@ -147,7 +147,7 @@ function getTracks() {
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
-  let artistUrl = `https://v1.nocodeapi.com/emilyyyy231/spotify/HGxHjgnrJuGpsnoc/search?q=${artist}&type=track`
+  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=track`
 
   fetch(artistUrl, requestOptions)
     .then(response => response.json())
