@@ -44,7 +44,9 @@ function getLyrics() {
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
       parentDiv.insertBefore(LyricDisplay, recommendationTable);
-    
+      if (response.lyrics === undefined) {
+        LyricDisplay.innerHTML = "Sorry, lyrics not found. Try another search.";
+      }
 
     
     
@@ -125,6 +127,7 @@ function getAlbums() {
 
       for (let i = 0; i < 3; i++) {
         let albumImage = document.createElement("img");
+        albumCoverElement[i].innerHTML = "";
         albumImage.setAttribute("src", albums.items[i].images[1].url)
         albumCoverElement[i].appendChild(albumImage);
         console.log(albums.items[1]);
