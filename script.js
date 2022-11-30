@@ -44,12 +44,10 @@ function getLyrics() {
       var textContent = document.createTextNode(lyricResult);
       LyricDisplay.appendChild(textContent);
       parentDiv.insertBefore(LyricDisplay, recommendationTable);
-    
 
-    
-    
-     
-      
+      if (response.lyrics === undefined) {
+        LyricDisplay.innerHTML = "Sorry, lyrics not found. Try another search.";
+      }
     })
 
     .catch((err) => console.error(err));
@@ -64,40 +62,33 @@ var requestOptions = {
   redirect: "follow",
 };
 
-
 function getArtists() {
   var artistSection = document.querySelector("#artist-display");
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
   let artist = document.getElementById("inputArtist5").value;
-  
-  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=artist`
+
+  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=artist`;
 
   fetch(artistUrl, requestOptions)
-
-
     .then((response) => response.json())
 
-    .then(result => {
-      console.log(result)
+    .then((result) => {
+      console.log(result);
       var artists = result.artists;
       let genresElement = document.getElementsByClassName("genreOne");
       let parentElement = document.getElementsByClassName("artistId");
       console.log(parentElement);
-
-    
 
       for (let i = 0; i < artists.items[0].genres.length; i++) {
         genresElement[i].innerHTML = `${artists.items[0].genres[i]}`;
         console.log(genresElement);
       }
     })
-    .catch(error => console.log('error', error))
-    
-  
-  };
-submitButton.addEventListener('click', getArtists);
+    .catch((error) => console.log("error", error));
+}
+submitButton.addEventListener("click", getArtists);
 
 function getAlbums() {
   let artist = document.getElementById("inputArtist5").value;
@@ -106,55 +97,49 @@ function getAlbums() {
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
-  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=album`
+  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=album`;
 
   fetch(artistUrl, requestOptions)
-
-
-    .then(response => response.json())
-    .then(result => {
+    .then((response) => response.json())
+    .then((result) => {
       var albums = result.albums;
       console.log(albums);
       let albumCoverElement = document.getElementsByClassName("albumCover");
       let parentElement = document.getElementsByClassName("albumOne");
-       console.log(parentElement);
+      console.log(parentElement);
 
-       for (let i =0; i < parentElement.length; i++) {
+      for (let i = 0; i < parentElement.length; i++) {
         parentElement[i].innerHTML = `${albums.items[i].name}`;
-       }
+      }
 
       for (let i = 0; i < 3; i++) {
         let albumImage = document.createElement("img");
-        albumImage.setAttribute("src", albums.items[i].images[1].url)
+        albumImage.setAttribute("src", albums.items[i].images[1].url);
         albumCoverElement[i].appendChild(albumImage);
         console.log(albums.items[1]);
       }
-
-
     })
-    .catch(error => console.log('error', error))
-    
-  
-};
+    .catch((error) => console.log("error", error));
+}
 
-submitButton.addEventListener('click', getAlbums);
+submitButton.addEventListener("click", getAlbums);
 
 function getTracks() {
   let artist = document.getElementById("inputArtist5").value;
-  console.log(artist)
- 
+  console.log(artist);
+
   var artistSection = document.querySelector("#artist-display");
   if (artistSection) {
     artistSection.innerHTML = " ";
   }
-  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=track`
+  let artistUrl = `https://v1.nocodeapi.com/tteklu/spotify/syYpWhZYhhKjueQQ/search?q=${artist}&type=track`;
 
   fetch(artistUrl, requestOptions)
-    .then(response => response.json())
-    .then(result => {
-      console.log(result)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
       var tracks = result.tracks;
-     
+
       let parentElement = document.getElementsByClassName("trackOne");
       console.log(parentElement);
 
@@ -163,9 +148,11 @@ function getTracks() {
         console.log(parentElement);
       }
     })
-    .catch(error => console.log('error', error))
-    
-  
-};
+    .catch((error) => console.log("error", error));
 
-submitButton.addEventListener('click', getTracks);
+  //     if (albumImage.src) {
+  //       albumImage.src.innerHTML = " ";
+  //     }
+}
+
+submitButton.addEventListener("click", getTracks);
