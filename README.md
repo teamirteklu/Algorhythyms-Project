@@ -22,6 +22,7 @@ Jacob Pickron: https://github.com/jpick77
 Teamir Teklu: https://github.com/teamirteklu
 Sarah DeSantis: https://github.com/sndesantis
 
+Image Link: https://www.istockphoto.com/collaboration/boards/hfBWDGm6VUegfUj_5k73EQ
 =======
 # Description
 
